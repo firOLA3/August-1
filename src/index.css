@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --primary: #ff477e;
+  --secondary: #ff7096;
+  --bg-color: #fce1e4;
+  --text-dark: #2b2b2b;
+  --text-light: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(circle at top left, #fff0f3, #fce1e4, #fcd5ce);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: var(--text-dark);
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(255, 112, 150, 0.2);
+}
+
+.title {
+  position: absolute;
+  top: 10%;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-shadow: 2px 2px 4px rgba(255, 71, 126, 0.2);
+  text-align: center;
+  z-index: 10;
+}
+
+.subtitle {
+  position: absolute;
+  top: 17%;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--secondary);
+  text-align: center;
+  z-index: 10;
+}
+
+/* The Gift Box */
+.gift-box {
+  background: linear-gradient(135deg, #ff0a54, #ff477e);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(255, 10, 84, 0.4);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s;
+  position: relative;
+  border: 3px solid #ffb3c6;
+  overflow: hidden;
+  user-select: none;
+}
+
+.gift-box:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 15px 25px rgba(255, 10, 84, 0.5);
+}
+
+.gift-box:active {
+  transform: scale(0.95);
+}
+
+/* For the ribbon effect on the box */
+.gift-box::before, .gift-box::after {
+  content: '';
+  position: absolute;
+  background-color: #ffccd5;
+}
+
+.gift-box::before {
+  width: 15%;
+  height: 100%;
+  left: 42.5%;
+}
+
+.gift-box::after {
+  width: 100%;
+  height: 15%;
+  top: 42.5%;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+.modal-btn:hover {
+  background: var(--secondary);
+  transform: scale(1.05);
+}
+
+.modal-btn.secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.modal-btn.secondary:hover {
+  background: rgba(255, 71, 126, 0.1);
+}
